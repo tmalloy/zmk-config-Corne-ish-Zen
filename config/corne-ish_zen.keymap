@@ -28,6 +28,15 @@
                 bindings = <&kp D>, <&kp SPACE>;
                 mods = <(MOD_LGUI|MOD_RGUI)>;
             };
+
+            // Already built-in to zmk but not with ctl and alt.
+            gresc2: grave_escape {
+              compatible = "zmk,behavior-mod-morph";
+              label = "GRAVE_ESCAPE";
+              #binding-cells = <0>;
+              bindings = <&kp ESC>, <&kp GRAVE>;
+              mods = <(MOD_LGUI|MOD_RGUI|MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT|MOD_LCTL|MOD_RCTL)>;
+            };
         };
 
         keymap {
@@ -41,7 +50,7 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &gresc    &kp Q &kp W &kp E   &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &lt 3 MINUS 
+   &gresc2   &kp Q &kp W &kp E   &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &lt 3 MINUS 
    &lt 2 TAB &kp A &kp S &dlight &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &lt 2 SQT
    &kp LSHFT &kp Z &kp X &kp C   &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHIFT
                 &mo 1 &mt LGUI RET &kp SPACE   &mt LCTRL BSPC &mt LALT RET &mo 1
